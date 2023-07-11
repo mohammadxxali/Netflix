@@ -3,4 +3,10 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from "react-router-dom";
 
 import App from './containers/App'; 
-import './static/sass/style.scss'; 
+import './static/sass/style.scss';
+
+const app = (
+    <BrowserRouter>
+       <App />
+    </BrowserRouter>
+ );
