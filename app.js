@@ -19,4 +19,22 @@ class App extends Component {
              let total = 0; 
              movies.forEach((movie) => {
                 movie.posterSrc = "https://image.tmdb.org/t/p/w185" + movie.poster_path;
-               total+= 1; 
+               total+= 1;
+
+               const movieComponent = <MovieRow 
+                                          val={total}
+                                          key={movie.id} 
+                                          movie={movie} 
+                                          />
+               movieRows.push(movieComponent);
+            })
+            this.setState({ rows: movieRows });
+         }).catch(error => {
+            console.log(error);
+         });
+   }
+
+   searchHandler = (event) => {
+      const searchItem = event.target.value; 
+      this.makeAipCall(searchItem); 
+   }
